@@ -24,188 +24,60 @@
                 android:id="@+id/textView3" />
         </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="514dp"
+            android:gravity="center"
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:gravity="bottom|right"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="bottom|right"
-                    android:id="@+id/a">
-
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/pz_l1_a1"
-                        android:id="@+id/pz_l1_a1"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="100dp"
-                        android:background="@null"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="bottom|left"
-                    android:id="@+id/b">
-
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/pz_l1_a2"
-                        android:id="@+id/pz_l1_a2"
-                        android:layout_marginRight="90dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@null" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="top|right"
-                    android:layout_height="match_parent"
-                    android:id="@+id/d">
-
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/pz_l1_a4"
-                        android:id="@+id/pz_l1_a4"
-                        android:layout_marginLeft="110dp"
-                        android:background="@null"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:id="@+id/c">
-
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/pz_l1_a3"
-                        android:id="@+id/pz_l1_a3"
-                        android:layout_marginRight="90dp"
-                        android:background="@null"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:alpha=".3"
+                app:srcCompat="@drawable/pz_l1_triangle_back"
+                android:id="@+id/pz_l1_triangle_back_imgView" />
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/l11_trans"
+            android:id="@+id/pz_l1_11"
+            android:layout_marginTop="133dp"
+            android:layout_marginLeft="108dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/l11_trans"
+            android:id="@+id/pz_l1_12"
+            android:layout_marginTop="133dp"
+            android:layout_marginLeft="260dp"
+            />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/a"
+            android:id="@+id/pz_l1_q_11"
+            android:alpha="1"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="578dp"/>
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="bottom|right"
-                    android:layout_height="match_parent"
-                    android:id="@+id/qa">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/b"
+            android:alpha="1"
+            android:layout_marginTop="110dp"
+            android:layout_marginLeft="778dp"
+            android:id="@+id/pz_l1_q_12" />
+    </RelativeLayout>
 
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/pz_l1_qa"
-                        android:id="@+id/pz_l1_qa"
-                        android:layout_marginLeft="50dp"
-                        android:background="@null" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="bottom|left"
-                    android:layout_height="match_parent"
-                    android:id="@+id/qb">
-
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/pz_l1_qb"
-                        android:layout_marginRight="90dp"
-                        android:id="@+id/pz_l1_qb"
-                        android:background="@null" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:id="@+id/qd">
-
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/pz_l1_qd"
-                        android:id="@+id/pz_l1_qd"
-                        android:layout_marginLeft="50dp"
-                        android:background="@null" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/qc">
-
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/pz_l1_qc"
-                        android:id="@+id/pz_l1_qc"
-                        android:layout_marginRight="90dp"
-                        android:background="@null" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
 
 </LinearLayout>
