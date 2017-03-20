@@ -134,7 +134,7 @@ public class PZ_L1_G1 extends AppCompatActivity {
                     break;
                 case DragEvent.ACTION_DROP:
                     if (v.getId() == R.id.pz_l1_11){
-                        String details = view.getId() +" "+ R.id.pz_l1_11 +" "+ v.getId() +" "+ R.id.pz_l1_q_11;
+                        String details = v.getId() +" "+ R.id.pz_l1_11 +" "+ view.getId() +" "+ R.id.pz_l1_q_11;
 
                         target1.setOnDragListener(null);
 
@@ -144,9 +144,10 @@ public class PZ_L1_G1 extends AppCompatActivity {
                                 .setDuration(1000)
                                 .start();
 
-                        if (ca.performCheck(details) == 1){
+                        int result = ca.performCheck(details);
+                        if (result==1){
                             loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(ca.performCheck(details) == -1){
+                        }else if(result==-1){
                             Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
                         }
 
@@ -154,7 +155,7 @@ public class PZ_L1_G1 extends AppCompatActivity {
                         Toast.makeText(PZ_L1_G1.this, "Dropped @ 11 = "+counter + flag,Toast.LENGTH_LONG).show();
 
                     }else if(v.getId() == R.id.pz_l1_12){
-                        String details = view.getId() +" "+ R.id.pz_l1_12 +" "+ v.getId() +" "+ R.id.pz_l1_q_12;
+                        String details = v.getId() +" "+ R.id.pz_l1_12 +" "+ view.getId() +" "+ R.id.pz_l1_q_12;
                         target2.setOnDragListener(null);
 
                         view.animate()
@@ -163,15 +164,16 @@ public class PZ_L1_G1 extends AppCompatActivity {
                                 .setDuration(1000)
                                 .start();
 
-                        if (ca.performCheck(details) == 1){
+                        int result = ca.performCheck(details);
+                        if (result==1){
                             loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(ca.performCheck(details) == -1){
+                        }else if(result==-1){
                             Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
                         }
                         Toast.makeText(PZ_L1_G1.this, "Dropped @ 12",Toast.LENGTH_LONG).show();
 
                     }else if(v.getId() == R.id.pz_l1_21){
-                        String details = view.getId() +" "+ R.id.pz_l1_21 +" "+ v.getId() +" "+ R.id.pz_l1_q_21;
+                        String details = v.getId() +" "+ R.id.pz_l1_21 +" "+ view.getId() +" "+ R.id.pz_l1_q_21;
                         target3.setOnDragListener(null);
 
                         view.animate()
@@ -180,9 +182,10 @@ public class PZ_L1_G1 extends AppCompatActivity {
                                 .setDuration(1000)
                                 .start();
 
-                        if (ca.performCheck(details) == 1){
+                        int result = ca.performCheck(details);
+                        if (result==1){
                             loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(ca.performCheck(details) == -1){
+                        }else if(result==-1){
                             Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
                         }
                         Toast.makeText(PZ_L1_G1.this, "Dropped @ 21= "+counter+ flag,Toast.LENGTH_LONG).show();
@@ -190,7 +193,7 @@ public class PZ_L1_G1 extends AppCompatActivity {
 
                     }
                     else if(v.getId() == R.id.pz_l1_22){
-                        String details = view.getId() +" "+ R.id.pz_l1_22 +" "+ v.getId() +" "+ R.id.pz_l1_q_22;
+                        String details = v.getId() +" "+ R.id.pz_l1_22 +" "+ view.getId() +" "+ R.id.pz_l1_q_22;
                         target4.setOnDragListener(null);
 
                         view.animate()
@@ -199,12 +202,12 @@ public class PZ_L1_G1 extends AppCompatActivity {
                                 .setDuration(1000)
                                 .start();
 
-                        if (ca.performCheck(details) == 1){
+                        int result = ca.performCheck(details);
+                        if (result==1){
                             loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(ca.performCheck(details) == -1){
+                        }else if(result==-1){
                             Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
                         }
-
                         Toast.makeText(PZ_L1_G1.this, "Dropped @ 22= "+counter+ flag,Toast.LENGTH_LONG).show();
 
                     }

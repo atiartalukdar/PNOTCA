@@ -6,21 +6,19 @@ package info.atiar.pnotca.assistance;
 
 public class CheckAnswer {
 
+    boolean ALLOW_PRINT_OPERATION = true;
+
     int PIECES;
     int CORRECT;
     int INCORRECT;
 
     public CheckAnswer(int numberOfPieces){
-        initializeChecker(numberOfPieces);
-    }
-
-    void initializeChecker(int n){
-        PIECES = n;
+        PIECES = numberOfPieces;
         CORRECT = 0;
         INCORRECT = 0;
     }
 
-    // MASTER in format : "a b c d"
+    // MASTER in format : "viewID viewReal vID vReal"
     public int performCheck(String master){
 
         int[] details = new int[4];
@@ -31,20 +29,39 @@ public class CheckAnswer {
             details[i] = Integer.parseInt(words[i]);
         }
 
+        if(ALLOW_PRINT_OPERATION )
+            for(int i: details)
+                System.out.println(i);
+
         return comparator(details[0],details[1],details[2],details[3]);
     }
 
     int comparator(int viewID, int viewReal, int vID, int vReal){
-        if(viewID == viewReal){
+
+        if(ALLOW_PRINT_OPERATION ) {
+            if(viewID == viewReal)
+                System.out.println("::::::::::::: FIRST CORRECT :::::::::::::");
+
             if(vID == vReal)
-                CORRECT++;
+                System.out.println("::::::::::::: SECOND CORRECT :::::::::::::");
+        }
+
+
+        if(viewID == viewReal && vID == vReal){
+            CORRECT++;
+
+            if(ALLOW_PRINT_OPERATION )
+                System.out.println("::::::::::::: RIGHT :::::::::::::");
         }
         else{
             INCORRECT++;
+
+            if(ALLOW_PRINT_OPERATION )
+                System.out.println("::::::::::::: WRONG :::::::::::::");
         }
 
         if(INCORRECT+CORRECT == PIECES){
-            if(CORRECT == PIECES)
+            if(INCORRECT == 0)
                 return 1; // CORRECT ANSWER
             else
                 return -1; // INCORRECT ANSWER
