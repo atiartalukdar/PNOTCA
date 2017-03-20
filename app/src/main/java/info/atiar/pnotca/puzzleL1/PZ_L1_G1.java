@@ -138,7 +138,13 @@ public class PZ_L1_G1 extends AppCompatActivity {
                     break;
                 case DragEvent.ACTION_DROP:
                     if (v.getId() == R.id.pz_l1_11){
-                        ca.performCheck(R.id.pz_l1_11,view.getId());
+                        int a = 11;
+                        int b = 0;
+                        if(view.getId() == R.id.pz_l1_q_11){
+                            b = 11;
+                        }
+                        ca.performCheck(a,b);
+
                         target1.setOnDragListener(null);
                         //flag = (v.getId()==R.id.pz_l1_11 && view.getId() == R.id.pz_l1_q_11);
 
@@ -162,8 +168,13 @@ public class PZ_L1_G1 extends AppCompatActivity {
 
                         //((ImageView) view).setImageResource(R.drawable.a);
                     }else if(v.getId() == R.id.pz_l1_12){
-                        counter++;
-                        flag = (v.getId()==R.id.pz_l1_12 && view.getId() == R.id.pz_l1_q_12);
+                        int a = 12;
+                        int b = 0;
+                        if(view.getId() == R.id.pz_l1_q_12){
+                            b = 12;
+                        }
+                        ca.performCheck(a,b);
+
                         target2.setOnDragListener(null);
 
                         view.animate()
@@ -184,8 +195,13 @@ public class PZ_L1_G1 extends AppCompatActivity {
 
                     }
                     else if(v.getId() == R.id.pz_l1_21){
-                        counter++;
-                        flag = (v.getId()==R.id.pz_l1_21 && view.getId() == R.id.pz_l1_q_21);
+                        int a = 21;
+                        int b = 0;
+                        if(view.getId() == R.id.pz_l1_q_21){
+                            b = 21;
+                        }
+                        ca.performCheck(a,b);
+
                         target3.setOnDragListener(null);
 
                         view.animate()
@@ -204,8 +220,12 @@ public class PZ_L1_G1 extends AppCompatActivity {
 
                     }
                     else if(v.getId() == R.id.pz_l1_22){
-                        counter++;
-                        flag = (v.getId()==R.id.pz_l1_22 && view.getId() == R.id.pz_l1_q_22);
+                        int a = 22;
+                        int b = 0;
+                        if(view.getId() == R.id.pz_l1_q_22){
+                            b = 22;
+                        }
+                        ca.performCheck(a,b);
                         target4.setOnDragListener(null);
 
                         view.animate()
