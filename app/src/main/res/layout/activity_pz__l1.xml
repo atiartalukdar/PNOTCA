@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_pz__l1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pz_l1"
+    tools:context="info.atiar.pnotca.puzzleL1.PZ_L1">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/back_button111"
+        android:id="@+id/backButton"
+        android:layout_marginTop="103dp"
+        android:background="@null"
+        android:layout_marginStart="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/pz_l1_circle1"
+        android:id="@+id/pz_l1_circle"
+        android:layout_marginEnd="187dp"
+        android:background="@null"
+        android:layout_marginTop="54dp"
+        android:layout_below="@+id/backButton"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/pz_l1_triangle1"
+        android:id="@+id/pz_l1_triangle"
+        android:layout_marginStart="51dp"
+        android:background="@null"
+        android:layout_alignBottom="@+id/pz_l1_circle"
+        android:layout_toEndOf="@+id/backButton" />
+
+</RelativeLayout>

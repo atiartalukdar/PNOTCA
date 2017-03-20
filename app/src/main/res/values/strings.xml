@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PNOTCA</string>
+
+    <string name="register"><u>Register</u></string>
+    <string name="registerS"><u><b>Register</b></u></string>
+    <string name="child_name">Name of child</string>
+    <string name="age">Age of child</string>
+    <string name="specialist">Name of specialist</string>
+    <string name="email">Email</string>
+
+    <string name="simple_puzzle"><u><b>Simple Puzzle</b></u></string>
+
+</resources>

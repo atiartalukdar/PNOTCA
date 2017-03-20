@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/reg"
+    >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="765dp"
+            android:layout_height="match_parent"
+            android:paddingTop="100dp"
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp"
+            android:gravity="top|center"
+            android:layout_marginRight="125dp"
+            android:layout_gravity="center"
+
+            >
+
+            <TextView
+                android:text="@string/registerS"
+                android:textSize="50sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/textView" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|top"
+                android:paddingLeft="@dimen/registerPage"
+                android:paddingRight="@dimen/registerPage"
+                android:layout_marginLeft="25dp"
+                android:layout_gravity="center"
+
+                >
+
+                <TextView
+                android:text="@string/child_name"
+                android:textSize="@dimen/register_textview_size"
+                android:textStyle="bold"
+                android:textColor="@color/registerPageTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="15dp"
+                    android:inputType="textPersonName"
+                    android:hint=""
+                    android:ems="10"
+                    android:layout_gravity="center"
+                    android:background="@drawable/round_edittext"
+                    android:id="@+id/childNameED"
+                         />
+
+                <TextView
+                android:text="@string/age"
+                android:textSize="@dimen/register_textview_size"
+                android:textStyle="bold"
+                android:textColor="@color/registerPageTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="20dp"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:background="@drawable/round_edittext"
+                    android:id="@+id/childAgeED"
+                    android:hint="" />
+
+                <TextView
+                    android:text="@string/specialist"
+                    android:textSize="@dimen/register_textview_size"
+                    android:textStyle="bold"
+                    android:textColor="@color/registerPageTextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="20dp"
+                    android:inputType="textPersonName"
+                    android:hint=""
+                    android:background="@drawable/round_edittext"
+                    android:ems="10"
+                    android:id="@+id/nameOfSpecialistED" />
+
+                <TextView
+                android:text="@string/email"
+                android:textSize="@dimen/register_textview_size"
+                android:textStyle="bold"
+                android:textColor="@color/registerPageTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/round_edittext"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/editText8"
+                    android:hint="" />
+
+                <Button
+                    android:text="Submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30dp"
+                    android:onClick="submit"
+                    android:background="@drawable/round_edittext"
+                    android:id="@+id/button" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
