@@ -54,7 +54,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/l11_trans"
+            app:srcCompat="@drawable/l12_trans"
             android:id="@+id/pz_l1_12"
             android:layout_marginTop="133dp"
             android:layout_marginLeft="260dp"

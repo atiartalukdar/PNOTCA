@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import info.atiar.pnotca.R;
 
@@ -61,26 +62,24 @@ public class PZ_L1_G1 extends AppCompatActivity {
                 case DragEvent.ACTION_DRAG_EXITED:
                     break;
                 case DragEvent.ACTION_DROP:
-                    view.animate()
-                            .x(target1.getX())
-                            .y(target1.getY())
-                            .setDuration(1000)
-                            .start();
+                    if (v.getId() == R.id.pz_l1_11){
+                        view.animate()
+                                .x(target1.getX())
+                                .y(target1.getY())
+                                .setDuration(1000)
+                                .start();
+                        Toast.makeText(PZ_L1_G1.this, "Dropped @ 11",Toast.LENGTH_LONG).show();
+                        //((ImageView) view).setImageResource(R.drawable.a);
+                    }else if(v.getId() == R.id.pz_l1_12){
+                        view.animate()
+                                .x(target2.getX())
+                                .y(target2.getY())
+                                .setDuration(1000)
+                                .start();
+                        Toast.makeText(PZ_L1_G1.this, "Dropped @ 12",Toast.LENGTH_LONG).show();
+                        //((ImageView) view).setImageResource(R.drawable.b);
 
-                    /*if (view.getId() == R.id.pz_l1_q_11 && view.getId() == R.id.pz_l1_11){
-                        ((ImageView) view).setImageResource(R.drawable.a);
-
-                        Toast.makeText(PZ_L1_G1.this, "Image dropped 1",Toast.LENGTH_LONG).show();
                     }
-                    else if (view.getId() == R.id.pz_l1_q_11 && view.getId() == R.id.pz_l1_11){
-                        ((ImageView) view).setImageResource(R.drawable.b);
-
-                        Toast.makeText(PZ_L1_G1.this, "Image dropped 2",Toast.LENGTH_LONG).show();
-                    }*/
-
-
-
-
                     break;
             }
 
