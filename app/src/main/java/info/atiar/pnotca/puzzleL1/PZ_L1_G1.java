@@ -54,7 +54,7 @@ public class PZ_L1_G1 extends AppCompatActivity {
         source4.setOnLongClickListener(longClickListener);
 
     }
-//load photo on the popup window
+    //load photo on the popup window
     private void loadPhoto(ImageView imageView, int width, int height) {
 
         ImageView tempImageView = imageView;
@@ -120,10 +120,6 @@ public class PZ_L1_G1 extends AppCompatActivity {
     };
 
 
-    boolean performCheck(int a,int b){
-        return a==b;
-    }
-
     View.OnDragListener dragListener = new View.OnDragListener() {
         @Override
         public boolean onDrag(View v, DragEvent event) {
@@ -138,15 +134,9 @@ public class PZ_L1_G1 extends AppCompatActivity {
                     break;
                 case DragEvent.ACTION_DROP:
                     if (v.getId() == R.id.pz_l1_11){
-                        int a = 11;
-                        int b = 0;
-                        if(view.getId() == R.id.pz_l1_q_11){
-                            b = 11;
-                        }
-                        ca.performCheck(a,b);
+                        String details = view.getId() +" "+ R.id.pz_l1_11 +" "+ v.getId() +" "+ R.id.pz_l1_q_11;
 
                         target1.setOnDragListener(null);
-                        //flag = (v.getId()==R.id.pz_l1_11 && view.getId() == R.id.pz_l1_q_11);
 
                         view.animate()
                                 .x(target1.getX())
@@ -154,27 +144,17 @@ public class PZ_L1_G1 extends AppCompatActivity {
                                 .setDuration(1000)
                                 .start();
 
-
-                        if (counter==4 && flag==true){
+                        if (ca.performCheck(details) == 1){
                             loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(counter == 4 && flag == false){
+                        }else if(ca.performCheck(details) == -1){
                             Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
                         }
 
 
                         Toast.makeText(PZ_L1_G1.this, "Dropped @ 11 = "+counter + flag,Toast.LENGTH_LONG).show();
 
-
-
-                        //((ImageView) view).setImageResource(R.drawable.a);
                     }else if(v.getId() == R.id.pz_l1_12){
-                        int a = 12;
-                        int b = 0;
-                        if(view.getId() == R.id.pz_l1_q_12){
-                            b = 12;
-                        }
-                        ca.performCheck(a,b);
-
+                        String details = view.getId() +" "+ R.id.pz_l1_12 +" "+ v.getId() +" "+ R.id.pz_l1_q_12;
                         target2.setOnDragListener(null);
 
                         view.animate()
@@ -183,25 +163,15 @@ public class PZ_L1_G1 extends AppCompatActivity {
                                 .setDuration(1000)
                                 .start();
 
-                        if (counter==4 && flag==true){
+                        if (ca.performCheck(details) == 1){
                             loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(counter == 4 && flag == false){
+                        }else if(ca.performCheck(details) == -1){
                             Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
                         }
-                        Toast.makeText(PZ_L1_G1.this, "Dropped @ 12= "+counter+ flag,Toast.LENGTH_LONG).show();
+                        Toast.makeText(PZ_L1_G1.this, "Dropped @ 12",Toast.LENGTH_LONG).show();
 
-
-                        //((ImageView) view).setImageResource(R.drawable.b);
-
-                    }
-                    else if(v.getId() == R.id.pz_l1_21){
-                        int a = 21;
-                        int b = 0;
-                        if(view.getId() == R.id.pz_l1_q_21){
-                            b = 21;
-                        }
-                        ca.performCheck(a,b);
-
+                    }else if(v.getId() == R.id.pz_l1_21){
+                        String details = view.getId() +" "+ R.id.pz_l1_21 +" "+ v.getId() +" "+ R.id.pz_l1_q_21;
                         target3.setOnDragListener(null);
 
                         view.animate()
@@ -210,9 +180,9 @@ public class PZ_L1_G1 extends AppCompatActivity {
                                 .setDuration(1000)
                                 .start();
 
-                        if (counter==4 && flag==true){
+                        if (ca.performCheck(details) == 1){
                             loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(counter == 4 && flag == false){
+                        }else if(ca.performCheck(details) == -1){
                             Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
                         }
                         Toast.makeText(PZ_L1_G1.this, "Dropped @ 21= "+counter+ flag,Toast.LENGTH_LONG).show();
@@ -220,12 +190,7 @@ public class PZ_L1_G1 extends AppCompatActivity {
 
                     }
                     else if(v.getId() == R.id.pz_l1_22){
-                        int a = 22;
-                        int b = 0;
-                        if(view.getId() == R.id.pz_l1_q_22){
-                            b = 22;
-                        }
-                        ca.performCheck(a,b);
+                        String details = view.getId() +" "+ R.id.pz_l1_22 +" "+ v.getId() +" "+ R.id.pz_l1_q_22;
                         target4.setOnDragListener(null);
 
                         view.animate()
@@ -234,9 +199,9 @@ public class PZ_L1_G1 extends AppCompatActivity {
                                 .setDuration(1000)
                                 .start();
 
-                        if (counter==4 && flag==true){
+                        if (ca.performCheck(details) == 1){
                             loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(counter == 4 && flag == false){
+                        }else if(ca.performCheck(details) == -1){
                             Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
                         }
 

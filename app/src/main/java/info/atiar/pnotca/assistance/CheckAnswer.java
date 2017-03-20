@@ -7,14 +7,57 @@ package info.atiar.pnotca.assistance;
 public class CheckAnswer {
 
     int PIECES;
-    int MAPPED;
-    boolean[] checker;
-    int[] imageMap;
-
+    int CORRECT;
+    int INCORRECT;
 
     public CheckAnswer(int numberOfPieces){
         initializeChecker(numberOfPieces);
     }
+
+    void initializeChecker(int n){
+        PIECES = n;
+        CORRECT = 0;
+        INCORRECT = 0;
+    }
+
+    // MASTER in format : "a b c d"
+    public int performCheck(String master){
+
+        int[] details = new int[4];
+
+        String[] words = master.split("\\s");
+
+        for(int i=0;i<4;i++){
+            details[i] = Integer.parseInt(words[i]);
+        }
+
+        return comparator(details[0],details[1],details[2],details[3]);
+    }
+
+    int comparator(int viewID, int viewReal, int vID, int vReal){
+        if(viewID == viewReal){
+            if(vID == vReal)
+                CORRECT++;
+        }
+        else{
+            INCORRECT++;
+        }
+
+        if(INCORRECT+CORRECT == PIECES){
+            if(CORRECT == PIECES)
+                return 1; // CORRECT ANSWER
+            else
+                return -1; // INCORRECT ANSWER
+        }
+        else return 0; // CONTINUE GAME
+
+    }
+
+    // FREELY MOVABLE PIECE - SOLUTION
+    /*
+    int MAPPED;
+    boolean[] checker;
+    int[] imageMap;
 
     void initializeChecker(int n){
         checker = new boolean[n+1];
@@ -27,8 +70,7 @@ public class CheckAnswer {
         PIECES = n;
     }
 
-    public int performCheck(int position, int piece){
-
+    private int comparator(int position, int piece){
         int map = 0;
 
         for(int i=1;i<=MAPPED;i++){
@@ -66,5 +108,5 @@ public class CheckAnswer {
 
 
     }
-
+    */
 }
