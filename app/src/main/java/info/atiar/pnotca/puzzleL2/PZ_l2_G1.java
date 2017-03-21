@@ -72,6 +72,16 @@ public class PZ_l2_G1 extends AppCompatActivity {
         source8.setOnLongClickListener(longClickListener);
         source9.setOnLongClickListener(longClickListener);
     }
+    public void resetButton(View view){
+        finish();
+        startActivity(getIntent());
+    }
+    @Override
+    public void finish() {
+        super.finish();
+        //    finish();
+
+    }
 
     //load photo on the popup window
     private void loadPhoto(ImageView imageView, int width, int height) {

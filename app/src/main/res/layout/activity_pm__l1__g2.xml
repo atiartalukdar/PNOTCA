@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/p_background"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/simple_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:textSize="45sp"
+            android:layout_marginTop="20dp"
+            android:textColor="#f99100"
+            android:id="@+id/textView3" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="514dp"
+            android:gravity="center"
+            android:layout_height="match_parent">
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/p_orange"
+            android:id="@+id/pm_source1"
+            android:layout_marginTop="133dp"
+            android:layout_marginLeft="108dp"
+            />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/p_apple"
+            android:id="@+id/pm_source2"
+            android:layout_marginTop="280dp"
+            android:layout_marginLeft="200dp"
+            />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/question_mark1"
+            android:alpha=".2"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="856dp"
+            android:id="@+id/pm_target1" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/p_orange"
+            android:alpha="1"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="754dp"
+            android:id="@+id/pz_l1_q_12" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/p_apple"
+            android:id="@+id/pz_l1_q_21"
+            android:alpha="1"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="652dp"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/p_orange"
+            android:alpha="1"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="550dp"
+            android:id="@+id/pz_l1_q_22" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/p_apple"
+            android:id="@+id/pz_l1_q_11"
+            android:alpha="1"
+            android:layout_marginLeft="448dp"
+            android:layout_marginTop="250dp"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

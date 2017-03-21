@@ -77,6 +77,19 @@ public class PZ_l2_G2 extends AppCompatActivity {
     }
 
 
+
+    public void resetButton(View view){
+        finish();
+        startActivity(getIntent());
+    }
+    @Override
+    public void finish() {
+        super.finish();
+        //    finish();
+
+    }
+
+
     //load photo on the popup window
     private void loadPhoto(ImageView imageView, int width, int height) {
 
