@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/pz_l1_background1"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Simple Puzzle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:textSize="45sp"
+            android:layout_marginTop="20dp"
+            android:textColor="#f99100"
+            android:id="@+id/textView3" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="514dp"
+            android:gravity="center"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha=".3"
+                app:srcCompat="@drawable/pz_l1_g2"
+                android:id="@+id/pz_l1_g2_imgView" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/l11_trans"
+            android:id="@+id/pz_l1_g2_11"
+            android:layout_marginTop="138dp"
+            android:layout_marginLeft="108dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/l11_trans"
+            android:id="@+id/pz_l1_g2_12"
+            android:layout_marginTop="138dp"
+            android:layout_marginLeft="260dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/l11_trans"
+            android:id="@+id/pz_l1_g2_21"
+            android:layout_marginTop="290dp"
+            android:layout_marginLeft="109dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/l11_trans"
+            android:id="@+id/pz_l1_g2_22"
+            android:layout_marginTop="290dp"
+            android:layout_marginLeft="260dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/pz_l1_g2_q_11"
+            android:id="@+id/pz_l1_g2_q_11"
+            android:alpha="1"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="578dp"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/pz_l1_g2_q_12"
+            android:alpha="1"
+            android:layout_marginTop="110dp"
+            android:layout_marginLeft="778dp"
+            android:id="@+id/pz_l1_g2_q_12" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/pz_l1_g2_q_21"
+            android:id="@+id/pz_l1_g2_q_21"
+            android:alpha="1"
+            android:layout_marginTop="320dp"
+            android:layout_marginLeft="630dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/pz_l1_g2_q_22"
+            android:alpha="1"
+            android:layout_marginTop="290dp"
+            android:layout_marginLeft="808dp"
+            android:id="@+id/pz_l1_g2_q_22" />
+    </RelativeLayout>
+
+
+</LinearLayout>

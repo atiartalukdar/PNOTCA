@@ -11,6 +11,11 @@ public class CheckAnswer {
     int PIECES;
     int CORRECT;
     int INCORRECT;
+    int DURATION = 1000;
+
+    public int getDURATION() {
+        return DURATION;
+    }
 
     public CheckAnswer(int numberOfPieces){
         PIECES = numberOfPieces;

@@ -7,7 +7,13 @@
     <string name="age">Age of child</string>
     <string name="specialist">Name of specialist</string>
     <string name="email">Email</string>
+    <string name="select_one_of_puzzle"><b>Select One of the Puzzle to Start</b></string>
 
+    <string name="simple_level"><u><b>Simple Level</b></u></string>
     <string name="simple_puzzle"><u><b>Simple Puzzle</b></u></string>
+
+    <string name="median_level"><u><b>Median Level</b></u></string>
+    <string name="median_puzzle"><u><b>Median Puzzle</b></u></string>
+
 
 </resources>

@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".puzzleL1.PZ_L1_G1"
+            android:name=".puzzleL2.PZ_l2_G1"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +34,15 @@
         <activity
             android:name=".puzzleL1.PZ_L1"
             android:screenOrientation="landscape" />
-        <activity android:name=".Register" android:screenOrientation="landscape" ></activity>
+        <activity
+            android:name=".Register"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".puzzleL1.PZ_L1_G1"
+            android:screenOrientation="landscape" />
+        <activity android:name=".puzzleL2.PZ_L2" android:screenOrientation="landscape" />
+        <activity android:name=".puzzleL1.PZ_L1_G2" android:screenOrientation="landscape"/>
+        <activity android:name=".puzzleL2.PZ_l2_G2" android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
