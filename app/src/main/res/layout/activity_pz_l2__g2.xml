@@ -29,6 +29,7 @@
             app:srcCompat="@drawable/reset"
             android:layout_gravity="right"
             android:background="@null"
+            android:onClick="resetButton"
             android:id="@+id/resetButton" />
     </LinearLayout>
 
