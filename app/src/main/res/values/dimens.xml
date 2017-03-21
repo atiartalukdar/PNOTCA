@@ -5,4 +5,5 @@
 
     <dimen name="register_textview_size">30sp</dimen>
     <dimen name="registerPage">140dp</dimen>
+
 </resources>
