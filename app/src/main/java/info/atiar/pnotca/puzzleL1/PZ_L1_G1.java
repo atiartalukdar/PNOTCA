@@ -2,6 +2,7 @@ package info.atiar.pnotca.puzzleL1;
 
 import android.content.ClipData;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import info.atiar.pnotca.R;
+import info.atiar.pnotca.Start;
 import info.atiar.pnotca.assistance.CheckAnswer;
 
 public class PZ_L1_G1 extends AppCompatActivity {
@@ -52,6 +54,13 @@ public class PZ_L1_G1 extends AppCompatActivity {
         source4.setOnLongClickListener(longClickListener);
 
     }
+
+    public void submitButton(View view){
+        Intent intent=new Intent(PZ_L1_G1.this,Start.class);
+        startActivity(intent);
+    }
+
+
     //load photo on the popup window
     private void loadPhoto(ImageView imageView, int width, int height) {
 

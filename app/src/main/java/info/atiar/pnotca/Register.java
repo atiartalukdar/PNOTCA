@@ -13,7 +13,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
     }
 
-    public void submit(View view){
+    public void submitButton(View view){
         Intent intent=new Intent(Register.this,Start.class);
         startActivity(intent);
     }
