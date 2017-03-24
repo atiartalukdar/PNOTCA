@@ -254,7 +254,7 @@ public class PZ_L3_G2 extends AppCompatActivity {
 
                     else if(v.getId() == R.id.pz_l3_14){
                         String details = v.getId() +" "+ R.id.pz_l3_14 +" "+ view.getId() +" "+ R.id.pz_l3_q_14;
-                        target3.setOnDragListener(null);
+                        target4.setOnDragListener(null);
 
                         view.animate()
                                 .x(target4.getX())
