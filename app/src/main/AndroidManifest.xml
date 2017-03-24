@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".puzzleL3.PZ_L3_G1"
+            android:name=".Register"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -71,14 +71,14 @@
             android:name=".patternL3.PM_L3"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Register"
+            android:name=".puzzleL3.PZ_L3_G2"
             android:screenOrientation="landscape" />
         <activity
             android:name=".patternL3.PM_L3_G1"
             android:screenOrientation="landscape" />
         <activity android:name=".puzzleL3.PZ_L3" android:screenOrientation="landscape" />
         <activity android:name=".patternL3.PM_L3_G2" android:screenOrientation="landscape"/>
-        <activity android:name=".puzzleL3.PZ_L3_G2" android:screenOrientation="landscape"></activity>
+        <activity android:name=".puzzleL3.PZ_L3_G1" android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
