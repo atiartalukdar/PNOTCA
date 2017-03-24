@@ -8,8 +8,10 @@ import android.widget.Toast;
 
 import info.atiar.pnotca.patternL1.PM_L1;
 import info.atiar.pnotca.patternL2.PM_L2;
+import info.atiar.pnotca.patternL3.PM_L3;
 import info.atiar.pnotca.puzzleL1.PZ_L1;
 import info.atiar.pnotca.puzzleL2.PZ_L2;
+import info.atiar.pnotca.puzzleL3.PZ_L3;
 
 public class Select_Level extends AppCompatActivity {
     String category = "";
@@ -74,10 +76,8 @@ public class Select_Level extends AppCompatActivity {
 
     public void advancedLevel(View view){
         if (category.equals("pattern")){
-            Toast.makeText(Select_Level.this,R.string.feature_comming_soon,Toast.LENGTH_LONG).show();
-
-           /* Intent intent=new Intent(Select_Level.this,PM_L3.class);
-            startActivity(intent);*/
+           Intent intent=new Intent(Select_Level.this,PM_L3.class);
+            startActivity(intent);
 
         }else if (category.equals("object")){
             Toast.makeText(Select_Level.this,R.string.feature_comming_soon,Toast.LENGTH_LONG).show();
@@ -86,9 +86,8 @@ public class Select_Level extends AppCompatActivity {
             startActivity(intent);*/
 
         }else if (category.equals("puzzle")){
-            Toast.makeText(Select_Level.this,R.string.feature_comming_soon,Toast.LENGTH_LONG).show();
-            /*Intent intent=new Intent(Select_Level.this,PZ_L3.class);
-            startActivity(intent);*/
+            Intent intent=new Intent(Select_Level.this,PZ_L3.class);
+            startActivity(intent);
         }
     }
 }

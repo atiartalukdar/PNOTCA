@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Register"
+            android:name=".puzzleL3.PZ_L3_G1"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,12 +49,36 @@
         <activity
             android:name=".puzzleL2.PZ_l2_G1"
             android:screenOrientation="landscape" />
-        <activity android:name=".patternL1.PM_L1" android:screenOrientation="landscape"/>
-        <activity android:name=".patternL2.PM_L2_G2" android:screenOrientation="landscape" />
-        <activity android:name=".patternL1.PM_L1_G1" android:screenOrientation="landscape"/>
-        <activity android:name=".patternL2.PM_L2" android:screenOrientation="landscape"/>
-        <activity android:name=".patternL1.PM_L1_G2" android:screenOrientation="landscape"/>
-        <activity android:name=".patternL2.PM_L2_G1" android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".patternL1.PM_L1"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".patternL2.PM_L2_G2"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".patternL1.PM_L1_G1"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".patternL2.PM_L2"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".patternL1.PM_L1_G2"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".patternL2.PM_L2_G1"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".patternL3.PM_L3"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Register"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".patternL3.PM_L3_G1"
+            android:screenOrientation="landscape" />
+        <activity android:name=".puzzleL3.PZ_L3" android:screenOrientation="landscape" />
+        <activity android:name=".patternL3.PM_L3_G2" android:screenOrientation="landscape"/>
+        <activity android:name=".puzzleL3.PZ_L3_G2" android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
