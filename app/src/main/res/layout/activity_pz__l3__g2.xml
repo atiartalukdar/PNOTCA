@@ -189,8 +189,8 @@
             app:srcCompat="@drawable/kids13"
             android:alpha="1"
             android:id="@+id/pz_l3_q_13"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="758dp"
+            android:layout_marginTop="335dp"
+            android:layout_marginLeft="540dp"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -198,8 +198,8 @@
             app:srcCompat="@drawable/kids14"
             android:alpha="1"
             android:id="@+id/pz_l3_q_14"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="602dp"
+            android:layout_marginTop="345dp"
+            android:layout_marginLeft="772dp"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -243,8 +243,8 @@
             app:srcCompat="@drawable/kids31"
             android:alpha="1"
             android:id="@+id/pz_l3_q_31"
-            android:layout_marginTop="335dp"
-            android:layout_marginLeft="540dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="758dp"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -261,8 +261,8 @@
             app:srcCompat="@drawable/kids33"
             android:alpha="1"
             android:id="@+id/pz_l3_q_33"
-            android:layout_marginTop="345dp"
-            android:layout_marginLeft="772dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="602dp"
             />
 
         <ImageView

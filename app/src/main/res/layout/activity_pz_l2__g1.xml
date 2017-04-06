@@ -144,8 +144,8 @@
             app:srcCompat="@drawable/apple11"
             android:alpha="1"
             android:id="@+id/pz_l2_q_11"
-            android:layout_marginTop="110dp"
-            android:layout_marginLeft="542dp"
+            android:layout_marginTop="217dp"
+            android:layout_marginLeft="772dp"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -180,8 +180,8 @@
             app:srcCompat="@drawable/apple22"
             android:alpha="1"
             android:id="@+id/pz_l2_q_22"
-            android:layout_marginTop="217dp"
-            android:layout_marginLeft="650dp"
+            android:layout_marginTop="335dp"
+            android:layout_marginLeft="540dp"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -189,8 +189,8 @@
             app:srcCompat="@drawable/apple23"
             android:alpha="1"
             android:id="@+id/pz_l2_q_23"
-            android:layout_marginTop="217dp"
-            android:layout_marginLeft="772dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginLeft="542dp"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -198,8 +198,8 @@
             app:srcCompat="@drawable/apple31"
             android:alpha="1"
             android:id="@+id/pz_l2_q_31"
-            android:layout_marginTop="335dp"
-            android:layout_marginLeft="540dp"
+            android:layout_marginTop="217dp"
+            android:layout_marginLeft="650dp"
             />
         <ImageView
             android:layout_width="wrap_content"

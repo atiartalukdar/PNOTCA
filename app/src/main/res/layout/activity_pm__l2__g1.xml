@@ -56,6 +56,14 @@
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
+            app:srcCompat="@drawable/car"
+            android:id="@+id/pm_source3"
+            android:layout_marginTop="203dp"
+            android:layout_marginLeft="158dp"
+            />
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             app:srcCompat="@drawable/house"
             android:id="@+id/pm_source2"
             android:layout_marginTop="280dp"

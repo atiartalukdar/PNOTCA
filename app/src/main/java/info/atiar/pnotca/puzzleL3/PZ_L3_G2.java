@@ -2,6 +2,7 @@ package info.atiar.pnotca.puzzleL3;
 
 import android.content.ClipData;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -21,14 +22,20 @@ public class PZ_L3_G2 extends AppCompatActivity {
             source1,source2,source3,source4,source5,source6,source7,source8,source9,source10,source11,source12;
 
     CheckAnswer ca;
+    MediaPlayer welldone, tryagain;
+
 
     String toastText = "Dropped by contact@atiar.info";
-    boolean toastVisibility = true;
+    boolean toastVisibility = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ca = new CheckAnswer(12);
+
+        welldone = MediaPlayer.create(this, R.raw.welldone);
+        tryagain = MediaPlayer.create(this,R.raw.tryagain);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -190,20 +197,29 @@ public class PZ_L3_G2 extends AppCompatActivity {
                     if (v.getId() == R.id.pz_l3_11){
                         String details = v.getId() +" "+ R.id.pz_l3_11 +" "+ view.getId() +" "+ R.id.pz_l3_q_11;
 
-                        target1.setOnDragListener(null);
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
+                            target1.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target1.getX())
-                                .y(target1.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                            view.animate()
+                                    .x(target1.getX())
+                                    .y(target1.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
+
+
 
 
                     }
@@ -212,229 +228,319 @@ public class PZ_L3_G2 extends AppCompatActivity {
 
                     else if(v.getId() == R.id.pz_l3_12){
                         String details = v.getId() +" "+ R.id.pz_l3_12 +" "+ view.getId() +" "+ R.id.pz_l3_q_12;
-                        target2.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target2.getX())
-                                .y(target2.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target2.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target2.getX())
+                                    .y(target2.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
 
                     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::/
 
                     else if(v.getId() == R.id.pz_l3_13){
                         String details = v.getId() +" "+ R.id.pz_l3_13 +" "+ view.getId() +" "+ R.id.pz_l3_q_13;
-                        target3.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target3.getX())
-                                .y(target3.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target3.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target3.getX())
+                                    .y(target3.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
 
                     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::/
 
                     else if(v.getId() == R.id.pz_l3_14){
                         String details = v.getId() +" "+ R.id.pz_l3_14 +" "+ view.getId() +" "+ R.id.pz_l3_q_14;
-                        target4.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target4.getX())
-                                .y(target4.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target4.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target4.getX())
+                                    .y(target4.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l3_21){
                         String details = v.getId() +" "+ R.id.pz_l3_21 +" "+ view.getId() +" "+ R.id.pz_l3_q_21;
-                        target5.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target5.getX())
-                                .y(target5.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target5.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target5.getX())
+                                    .y(target5.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l3_22){
                         String details = v.getId() +" "+ R.id.pz_l3_22 +" "+ view.getId() +" "+ R.id.pz_l3_q_22;
-                        target6.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target6.getX())
-                                .y(target6.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target6.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target6.getX())
+                                    .y(target6.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l3_23){
                         String details = v.getId() +" "+ R.id.pz_l3_23 +" "+ view.getId() +" "+ R.id.pz_l3_q_23;
-                        target7.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target7.getX())
-                                .y(target7.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target7.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target7.getX())
+                                    .y(target7.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l3_24){
                         String details = v.getId() +" "+ R.id.pz_l3_24 +" "+ view.getId() +" "+ R.id.pz_l3_q_24;
-                        target8.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target8.getX())
-                                .y(target8.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target8.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target8.getX())
+                                    .y(target8.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l3_31){
                         String details = v.getId() +" "+ R.id.pz_l3_31 +" "+ view.getId() +" "+ R.id.pz_l3_q_31;
-                        target9.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target9.getX())
-                                .y(target9.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target9.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target9.getX())
+                                    .y(target9.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l3_32){
                         String details = v.getId() +" "+ R.id.pz_l3_32 +" "+ view.getId() +" "+ R.id.pz_l3_q_32;
-                        target10.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target10.getX())
-                                .y(target10.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target10.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target10.getX())
+                                    .y(target10.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l3_33){
                         String details = v.getId() +" "+ R.id.pz_l3_33 +" "+ view.getId() +" "+ R.id.pz_l3_q_33;
-                        target11.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target11.getX())
-                                .y(target11.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target11.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target11.getX())
+                                    .y(target11.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l3_34){
                         String details = v.getId() +" "+ R.id.pz_l3_34 +" "+ view.getId() +" "+ R.id.pz_l3_q_34;
-                        target12.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target12.getX())
-                                .y(target12.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target12.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target12.getX())
+                                    .y(target12.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                            toastFunc();
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        toastFunc();
                     }
                     break;
             }

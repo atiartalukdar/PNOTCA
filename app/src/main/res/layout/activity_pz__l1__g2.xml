@@ -100,8 +100,8 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/pz_l1_g2_q_12"
             android:alpha="1"
-            android:layout_marginTop="110dp"
-            android:layout_marginLeft="778dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginLeft="630dp"
             android:id="@+id/pz_l1_g2_q_12" />
 
         <ImageView
@@ -110,8 +110,8 @@
             app:srcCompat="@drawable/pz_l1_g2_q_21"
             android:id="@+id/pz_l1_g2_q_21"
             android:alpha="1"
-            android:layout_marginTop="320dp"
-            android:layout_marginLeft="630dp"/>
+            android:layout_marginTop="110dp"
+            android:layout_marginLeft="778dp"/>
 
         <ImageView
             android:layout_width="wrap_content"

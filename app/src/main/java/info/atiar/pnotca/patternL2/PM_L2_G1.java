@@ -2,6 +2,7 @@ package info.atiar.pnotca.patternL2;
 
 import android.content.ClipData;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import info.atiar.pnotca.R;
 import info.atiar.pnotca.assistance.CheckAnswer;
@@ -21,11 +21,17 @@ public class PM_L2_G1 extends AppCompatActivity {
             source1,source2,source3,source4;
 
     CheckAnswer ca;
+    MediaPlayer welldone, tryagain;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ca = new CheckAnswer(2);
+
+        welldone = MediaPlayer.create(this, R.raw.welldone);
+        tryagain = MediaPlayer.create(this,R.raw.tryagain);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -37,12 +43,14 @@ public class PM_L2_G1 extends AppCompatActivity {
 
         source1 = (ImageView) findViewById(R.id.pm_source1);
         source2 = (ImageView) findViewById(R.id.pm_source2);
+        source3 = (ImageView) findViewById(R.id.pm_source3);
 
         target1.setOnDragListener(dragListener);
         target2.setOnDragListener(dragListener);
 
         source1.setOnLongClickListener(longClickListener);
         source2.setOnLongClickListener(longClickListener);
+        source3.setOnLongClickListener(longClickListener);
     }
 
     public void resetButton(View view){
@@ -137,46 +145,56 @@ public class PM_L2_G1 extends AppCompatActivity {
                     if (v.getId() == R.id.pm_target1){
                         String details = v.getId() +" "+ R.id.pm_target1 +" "+ view.getId() +" "+ R.id.pm_source1;
 
-                        target1.setOnDragListener(null);
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
 
+                        if (temp==1){
+                            target1.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target1.getX())
-                                .y(target1.getY())
-                                .setDuration(1000)
-                                .start();
+                            view.animate()
+                                    .x(target1.getX())
+                                    .y(target1.getY())
+                                    .setDuration(1000)
+                                    .start();
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pm_source1),300,300);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pm_source1),300,300);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-
-
-                        Toast.makeText(PM_L2_G1.this, "Atiar Its dropped ",Toast.LENGTH_LONG).show();
 
                     } else if (v.getId() == R.id.pm_target2){
                         String details = v.getId() +" "+ R.id.pm_target2 +" "+ view.getId() +" "+ R.id.pm_source2;
 
-                        target2.setOnDragListener(null);
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+
+                        if (temp==1){
+                            target2.setOnDragListener(null);
 
 
-                        view.animate()
-                                .x(target2.getX())
-                                .y(target2.getY())
-                                .setDuration(1000)
-                                .start();
+                            view.animate()
+                                    .x(target2.getX())
+                                    .y(target2.getY())
+                                    .setDuration(1000)
+                                    .start();
 
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pm_source2),300,300);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pm_source2),300,300);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        Toast.makeText(PM_L2_G1.this, "Atiar dropped it",Toast.LENGTH_LONG).show();
-
                     }
             }
 

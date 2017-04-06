@@ -78,7 +78,11 @@
             android:screenOrientation="landscape" />
         <activity android:name=".puzzleL3.PZ_L3" android:screenOrientation="landscape" />
         <activity android:name=".patternL3.PM_L3_G2" android:screenOrientation="landscape"/>
-        <activity android:name=".puzzleL3.PZ_L3_G1" android:screenOrientation="landscape"></activity>
+        <activity android:name=".puzzleL3.PZ_L3_G1" android:screenOrientation="landscape"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

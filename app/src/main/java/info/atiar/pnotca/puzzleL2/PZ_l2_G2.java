@@ -2,6 +2,7 @@ package info.atiar.pnotca.puzzleL2;
 
 import android.content.ClipData;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import info.atiar.pnotca.R;
 import info.atiar.pnotca.assistance.CheckAnswer;
@@ -22,12 +22,18 @@ public class PZ_l2_G2 extends AppCompatActivity {
             source1,source2,source3,source4,source5,source6,source7,source8,source9;
 
     CheckAnswer ca;
+    MediaPlayer welldone, tryagain;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ca = new CheckAnswer(9);
+
+        welldone = MediaPlayer.create(this, R.raw.welldone);
+        tryagain = MediaPlayer.create(this,R.raw.tryagain);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -173,21 +179,28 @@ public class PZ_l2_G2 extends AppCompatActivity {
                     if (v.getId() == R.id.pz_l2_g2_11){
                         String details = v.getId() +" "+ R.id.pz_l2_g2_11 +" "+ view.getId() +" "+ R.id.pz_l2_q_g2_11;
 
-                        target1.setOnDragListener(null);
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        view.animate()
-                                .x(target1.getX())
-                                .y(target1.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                            target1.setOnDragListener(null);
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            view.animate()
+                                    .x(target1.getX())
+                                    .y(target1.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        Toast.makeText(PZ_l2_G2.this, "Dropped @ 11 = ",Toast.LENGTH_LONG).show();
 
                     }
 
@@ -195,21 +208,30 @@ public class PZ_l2_G2 extends AppCompatActivity {
 
                     else if(v.getId() == R.id.pz_l2_g2_12){
                         String details = v.getId() +" "+ R.id.pz_l2_g2_12 +" "+ view.getId() +" "+ R.id.pz_l2_q_g2_12;
-                        target2.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target2.getX())
-                                .y(target2.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
+                            target2.setOnDragListener(null);
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            view.animate()
+                                    .x(target2.getX())
+                                    .y(target2.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        Toast.makeText(PZ_l2_G2.this, "Dropped @ 12",Toast.LENGTH_LONG).show();
+
+
 
                     }
 
@@ -217,148 +239,204 @@ public class PZ_l2_G2 extends AppCompatActivity {
 
                     else if(v.getId() == R.id.pz_l2_g2_13){
                         String details = v.getId() +" "+ R.id.pz_l2_g2_13 +" "+ view.getId() +" "+ R.id.pz_l2_q_g2_13;
-                        target3.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target3.getX())
-                                .y(target3.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target3.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target3.getX())
+                                    .y(target3.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        Toast.makeText(PZ_l2_G2.this, "Dropped @ 12",Toast.LENGTH_LONG).show();
-
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l2_g2_21){
                         String details = v.getId() +" "+ R.id.pz_l2_g2_21 +" "+ view.getId() +" "+ R.id.pz_l2_q_g2_21;
-                        target4.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target4.getX())
-                                .y(target4.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
+                            target4.setOnDragListener(null);
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            view.animate()
+                                    .x(target4.getX())
+                                    .y(target4.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        Toast.makeText(PZ_l2_G2.this, "Dropped @ 21= ",Toast.LENGTH_LONG).show();
+
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l2_g2_22){
                         String details = v.getId() +" "+ R.id.pz_l2_g2_22 +" "+ view.getId() +" "+ R.id.pz_l2_q_g2_22;
-                        target5.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target5.getX())
-                                .y(target5.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
+                            target5.setOnDragListener(null);
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            view.animate()
+                                    .x(target5.getX())
+                                    .y(target5.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        Toast.makeText(PZ_l2_G2.this, "Dropped @ 22= ",Toast.LENGTH_LONG).show();
+
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l2_g2_23){
                         String details = v.getId() +" "+ R.id.pz_l2_g2_23 +" "+ view.getId() +" "+ R.id.pz_l2_q_g2_23;
-                        target6.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target6.getX())
-                                .y(target6.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
+                            target6.setOnDragListener(null);
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            view.animate()
+                                    .x(target6.getX())
+                                    .y(target6.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        Toast.makeText(PZ_l2_G2.this, "Dropped @ 22= ",Toast.LENGTH_LONG).show();
+
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l2_g2_31){
                         String details = v.getId() +" "+ R.id.pz_l2_g2_31 +" "+ view.getId() +" "+ R.id.pz_l2_q_g2_31;
-                        target7.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target7.getX())
-                                .y(target7.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            target7.setOnDragListener(null);
+
+                            view.animate()
+                                    .x(target7.getX())
+                                    .y(target7.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        Toast.makeText(PZ_l2_G2.this, "Dropped @ 21= ",Toast.LENGTH_LONG).show();
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l2_g2_32){
                         String details = v.getId() +" "+ R.id.pz_l2_g2_32 +" "+ view.getId() +" "+ R.id.pz_l2_q_g2_32;
-                        target8.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target8.getX())
-                                .y(target8.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
+                            target8.setOnDragListener(null);
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            view.animate()
+                                    .x(target8.getX())
+                                    .y(target8.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        Toast.makeText(PZ_l2_G2.this, "Dropped @ 22= ",Toast.LENGTH_LONG).show();
+
                     }
 
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
 
                     else if(v.getId() == R.id.pz_l2_g2_33){
                         String details = v.getId() +" "+ R.id.pz_l2_g2_33 +" "+ view.getId() +" "+ R.id.pz_l2_q_g2_33;
-                        target9.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target9.getX())
-                                .y(target9.getY())
-                                .setDuration(ca.getDURATION())
-                                .start();
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
+                            target9.setOnDragListener(null);
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            view.animate()
+                                    .x(target9.getX())
+                                    .y(target9.getY())
+                                    .setDuration(ca.getDURATION())
+                                    .start();
+
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
-                        Toast.makeText(PZ_l2_G2.this, "Dropped @ 22= ",Toast.LENGTH_LONG).show();
+
                     }
                     break;
             }

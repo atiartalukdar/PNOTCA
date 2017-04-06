@@ -171,8 +171,8 @@
             app:srcCompat="@drawable/animal11"
             android:alpha="1"
             android:id="@+id/pz_l3_q_11"
-            android:layout_marginTop="110dp"
-            android:layout_marginLeft="542dp"
+            android:layout_marginTop="217dp"
+            android:layout_marginLeft="772dp"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -198,8 +198,8 @@
             app:srcCompat="@drawable/animal14"
             android:alpha="1"
             android:id="@+id/pz_l3_q_14"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="602dp"
+            android:layout_marginTop="325dp"
+            android:layout_marginLeft="650dp"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -225,8 +225,8 @@
             app:srcCompat="@drawable/animal23"
             android:alpha="1"
             android:id="@+id/pz_l3_q_23"
-            android:layout_marginTop="217dp"
-            android:layout_marginLeft="772dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginLeft="542dp"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -252,8 +252,8 @@
             app:srcCompat="@drawable/animal32"
             android:alpha="1"
             android:id="@+id/pz_l3_q_32"
-            android:layout_marginTop="325dp"
-            android:layout_marginLeft="650dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="602dp"
             />
         <ImageView
         android:layout_width="wrap_content"

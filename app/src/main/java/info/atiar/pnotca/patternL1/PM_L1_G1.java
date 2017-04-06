@@ -2,6 +2,7 @@ package info.atiar.pnotca.patternL1;
 
 import android.content.ClipData;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import info.atiar.pnotca.R;
 import info.atiar.pnotca.assistance.CheckAnswer;
@@ -21,10 +21,15 @@ public class PM_L1_G1 extends AppCompatActivity {
             source1,source2,source3,source4;
 
     CheckAnswer ca;
+    MediaPlayer welldone, tryagain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ca = new CheckAnswer(1);
+
+        //initializing media player
+        welldone = MediaPlayer.create(this, R.raw.welldone);
+        tryagain = MediaPlayer.create(this,R.raw.tryagain);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -133,26 +138,32 @@ public class PM_L1_G1 extends AppCompatActivity {
                     if (v.getId() == R.id.pm_target1){
                         String details = v.getId() +" "+ R.id.pm_target1 +" "+ view.getId() +" "+ R.id.pm_source1;
 
-                        target1.setOnDragListener(null);
+                        CheckAnswer caSingle = new CheckAnswer(1);
+                        int temp = caSingle.performCheck(details);
+                        if (temp==1){
 
+                            target1.setOnDragListener(null);
 
-                        view.animate()
-                                .x(target1.getX())
-                                .y(target1.getY())
-                                .setDuration(1000)
-                                .start();
+                            view.animate()
+                                    .x(target1.getX())
+                                    .y(target1.getY())
+                                    .setDuration(1000)
+                                    .start();
 
-                        target1.setBackgroundResource(R.drawable.p_cat);
+                            target1.setBackgroundResource(R.drawable.p_cat);
 
-                        int result = ca.performCheck(details);
-                        if (result==1){
-                            loadPhoto((ImageView)findViewById(R.id.pm_source1),300,300);
-                        }else if(result==-1){
-                            Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            int result = ca.performCheck(details);
+                            if (result==1){
+                                loadPhoto((ImageView)findViewById(R.id.pm_source1),300,300);
+                                welldone.start();
+                            }else if(result==-1){
+                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                            }
+
+                        }else if (temp==-1){
+                            tryagain.start();
                         }
 
-
-                        Toast.makeText(PM_L1_G1.this, "Atiar Its dropped ",Toast.LENGTH_LONG).show();
 
                     }
             }
