@@ -3,6 +3,7 @@
 
     <string name="register"><u>Register</u></string>
     <string name="registerS"><u><b>Register</b></u></string>
+    <string name="feedbackS"><u><b>Send Feedback</b></u></string>
     <string name="child_name">Name of child</string>
     <string name="age">Age of child</string>
     <string name="specialist">Name of specialist</string>

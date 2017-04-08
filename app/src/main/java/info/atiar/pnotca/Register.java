@@ -1,20 +1,49 @@
 package info.atiar.pnotca;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import java.util.Arrays;
+import java.util.List;
+
+import info.atiar.pnotca.assistance.GameStatus;
+import info.atiar.pnotca.gmailAssistance.SendMailTask;
+
 public class Register extends AppCompatActivity {
 
+    GameStatus gs = new GameStatus();
+
+    String fromEmail = "pnotca@gmail.com";
+    String fromPassword = "freelancer";
+    String toEmails = "bilalsalas@gmail.com";
+
+    /*List toEmailList = Arrays.asList(toEmails
+            .split("\\s*,\\s*"));*/
+
+    List toEmailList = Arrays.asList("swajan.talukdar@gmail.com");
+
+    String emailSubject = "Testing Email";
+    String emailBody = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        emailBody = "<b>GAME &emsp;&emsp;&emsp;&emsp; TRIES &emsp; STATUS &emsp; ELAPSED </b> <br>"+gs.getEmailBody();
+
     }
 
-    public void submitButton(View view){
-        Intent intent=new Intent(Register.this,Start.class);
-        startActivity(intent);
+    public void sendFeedback(View view){
+        /*
+        segment for sending email background
+         */
+        new SendMailTask(this).execute(fromEmail,
+                fromPassword, toEmailList, emailSubject, emailBody);
+
+        gs.clearTheList();
+
+       /* finish();
+        System.exit(0);*/
     }
 }

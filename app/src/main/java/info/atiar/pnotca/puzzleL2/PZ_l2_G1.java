@@ -13,8 +13,12 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import java.util.regex.Pattern;
+
 import info.atiar.pnotca.R;
 import info.atiar.pnotca.assistance.CheckAnswer;
+import info.atiar.pnotca.assistance.GameStatus;
+import info.atiar.pnotca.patternL1.PM_L1_G1;
 
 public class PZ_l2_G1 extends AppCompatActivity {
     ImageView target1,target2,target3,target4,target5,target6,target7,target8,target9,
@@ -23,10 +27,20 @@ public class PZ_l2_G1 extends AppCompatActivity {
     CheckAnswer ca;
     MediaPlayer welldone, tryagain;
 
+    GameStatus gs;
+    String Game = "";
+    int number_of_tries = 0;
+    boolean status = false;
+    long startTime = 0,endTime = 0,totalTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ca = new CheckAnswer(9);
+
+        String temp = this.getLocalClassName();
+        String[] parts = temp.split(Pattern.quote("."));
+        Game = Game + parts[1] + " - ";
 
         welldone = MediaPlayer.create(this, R.raw.welldone);
         tryagain = MediaPlayer.create(this,R.raw.tryagain);
@@ -77,10 +91,52 @@ public class PZ_l2_G1 extends AppCompatActivity {
         source8.setOnLongClickListener(longClickListener);
         source9.setOnLongClickListener(longClickListener);
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        gs = new GameStatus();
+        startTime = 0;
+        endTime = 0;
+        totalTime = 0;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startTime = System.currentTimeMillis();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        endTime = System.currentTimeMillis();
+        totalTime += (endTime - startTime)/1000; // tempTotalTime will store duration in seconds
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (number_of_tries > 0){
+            Game = Game + number_of_tries + " - " + status + " - " + totalTime + " Seconds <br>";
+
+            //pass the data to GameStatus class
+            gs.addToList(Game);
+            System.out.println("List Object = " +Game);
+        }
+    }
+
     public void resetButton(View view){
         finish();
         startActivity(getIntent());
     }
+
+    public void exitButton(View view){
+        PM_L1_G1 g = new PM_L1_G1();
+        g.Message("Confirmation","Do you want to exit the game?",this);
+    }
+
     @Override
     public void finish() {
         super.finish();
@@ -90,6 +146,8 @@ public class PZ_l2_G1 extends AppCompatActivity {
 
     //load photo on the popup window
     private void loadPhoto(ImageView imageView, int width, int height) {
+
+        status = true;
 
         ImageView tempImageView = imageView;
 
@@ -167,6 +225,8 @@ public class PZ_l2_G1 extends AppCompatActivity {
                 case DragEvent.ACTION_DRAG_EXITED:
                     break;
                 case DragEvent.ACTION_DROP:
+                    number_of_tries++;
+
                     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
                     if (v.getId() == R.id.pz_l2_11){
                         String details = v.getId() +" "+ R.id.pz_l2_11 +" "+ view.getId() +" "+ R.id.pz_l2_q_11;

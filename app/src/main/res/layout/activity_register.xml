@@ -24,8 +24,8 @@
             >
 
             <TextView
-                android:text="@string/registerS"
-                android:textSize="50sp"
+                android:text="@string/feedbackS"
+                android:textSize="35sp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
@@ -123,11 +123,11 @@
                     android:hint="" />
 
                 <Button
-                    android:text="Submit"
+                    android:text="Send Feedback"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
-                    android:onClick="submitButton"
+                    android:onClick="sendFeedback"
                     android:background="@drawable/round_edittext"
                     android:id="@+id/button" />
 

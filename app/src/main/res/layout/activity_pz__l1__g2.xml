@@ -121,6 +121,17 @@
             android:layout_marginTop="290dp"
             android:layout_marginLeft="808dp"
             android:id="@+id/pz_l1_g2_q_22" />
+
+        <ImageButton
+            android:layout_width="75dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/exit_small"
+            android:id="@+id/exit"
+            android:background="@null"
+            android:layout_marginTop="475dp"
+            android:layout_marginLeft="15dp"
+            android:onClick="exitButton"/>
+
     </RelativeLayout>
 
 

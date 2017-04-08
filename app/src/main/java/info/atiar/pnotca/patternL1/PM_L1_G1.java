@@ -1,7 +1,9 @@
 package info.atiar.pnotca.patternL1;
 
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -13,8 +15,12 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import java.util.regex.Pattern;
+
 import info.atiar.pnotca.R;
+import info.atiar.pnotca.Register;
 import info.atiar.pnotca.assistance.CheckAnswer;
+import info.atiar.pnotca.assistance.GameStatus;
 
 public class PM_L1_G1 extends AppCompatActivity {
     ImageView target1,
@@ -22,10 +28,23 @@ public class PM_L1_G1 extends AppCompatActivity {
 
     CheckAnswer ca;
     MediaPlayer welldone, tryagain;
+
+    GameStatus gs;
+    String Game = "";
+    int number_of_tries = 0;
+    boolean status = false;
+    long startTime = 0,endTime = 0,totalTime = 0;
+
+    Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ca = new CheckAnswer(1);
+
+        String temp = this.getLocalClassName();
+        String[] parts = temp.split(Pattern.quote("."));
+
+        Game = Game + parts[1] + " - ";
 
         //initializing media player
         welldone = MediaPlayer.create(this, R.raw.welldone);
@@ -45,10 +64,50 @@ public class PM_L1_G1 extends AppCompatActivity {
         source1.setOnLongClickListener(longClickListener);
         source2.setOnLongClickListener(longClickListener);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        gs = new GameStatus();
+        startTime = 0;
+        endTime = 0;
+        totalTime = 0;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startTime = System.currentTimeMillis();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        endTime = System.currentTimeMillis();
+        totalTime += (endTime - startTime)/1000; // tempTotalTime will store duration in seconds
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (number_of_tries > 0){
+            Game = Game + number_of_tries + " - " + status + " - " + totalTime + " Seconds <br>";
+
+            //pass the data to GameStatus class
+            gs.addToList(Game);
+            System.out.println("List Object = " +Game);
+        }
+    }
+
     public void resetButton(View view){
         finish();
         startActivity(getIntent());
     }
+
+    public void exitButton(View view){
+        Message("Confirmation","Do you want to exit the game?",this);
+    }
+
     @Override
     public void finish() {
         super.finish();
@@ -59,8 +118,16 @@ public class PM_L1_G1 extends AppCompatActivity {
     //load photo on the popup window
     private void loadPhoto(ImageView imageView, int width, int height) {
 
-        ImageView tempImageView = imageView;
+        //Check whether the user own the game or not.
+        /*
+        I put the status on the loadPhoto method because,
+        this method will be call if and only iff
+        the user will win the game.
+        Otherwise this method will never call.
+         */
+        status = true;
 
+        ImageView tempImageView = imageView;
 
         AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -84,7 +151,35 @@ public class PM_L1_G1 extends AppCompatActivity {
     }
 
     //load message on pop up window
-    public void Message(String Title, String Message) {
+    public void Message(String Title, String Message, final Activity activity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle(Title);
+        builder.setMessage(Message);
+
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                finish();
+                i = new Intent(activity,Register.class);
+                activity.startActivity(i);
+            }
+        });
+
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                // Do nothing
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+    public void MessageOnly(String Title, String Message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(Title);
         builder.setMessage(Message);
@@ -135,6 +230,9 @@ public class PM_L1_G1 extends AppCompatActivity {
                 case DragEvent.ACTION_DRAG_EXITED:
                     break;
                 case DragEvent.ACTION_DROP:
+                    //to count how many times user tried
+                    number_of_tries++;
+
                     if (v.getId() == R.id.pm_target1){
                         String details = v.getId() +" "+ R.id.pm_target1 +" "+ view.getId() +" "+ R.id.pm_source1;
 
@@ -157,7 +255,7 @@ public class PM_L1_G1 extends AppCompatActivity {
                                 loadPhoto((ImageView)findViewById(R.id.pm_source1),300,300);
                                 welldone.start();
                             }else if(result==-1){
-                                Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
+                                MessageOnly("Wrong Answer!!!!","Oh !!!, You made a mistake");
                             }
 
                         }else if (temp==-1){

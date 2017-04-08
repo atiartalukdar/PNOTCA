@@ -13,18 +13,32 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import java.util.regex.Pattern;
+
 import info.atiar.pnotca.R;
 import info.atiar.pnotca.assistance.CheckAnswer;
+import info.atiar.pnotca.assistance.GameStatus;
+import info.atiar.pnotca.patternL1.PM_L1_G1;
 
 public class PZ_L1_G1 extends AppCompatActivity {
     ImageView target1,target2,target3,target4,source1,source2,source3,source4;
 
     CheckAnswer ca;
     MediaPlayer welldone, tryagain;
+
+    GameStatus gs;
+    String Game = "";
+    int number_of_tries = 0;
+    boolean status = false;
+    long startTime = 0,endTime = 0,totalTime = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ca = new CheckAnswer(4);
+
+        String temp = this.getLocalClassName();
+        String[] parts = temp.split(Pattern.quote("."));
+        Game = Game + parts[1] + " - ";
 
         welldone = MediaPlayer.create(this, R.raw.welldone);
         tryagain = MediaPlayer.create(this,R.raw.tryagain);
@@ -57,11 +71,38 @@ public class PZ_L1_G1 extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        gs = new GameStatus();
+        startTime = 0;
+        endTime = 0;
+        totalTime = 0;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startTime = System.currentTimeMillis();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        endTime = System.currentTimeMillis();
+        totalTime += (endTime - startTime)/1000; // tempTotalTime will store duration in seconds
+    }
 
     public void resetButton(View view){
         finish();
         startActivity(getIntent());
     }
+
+    public void exitButton(View view){
+        PM_L1_G1 g = new PM_L1_G1();
+        g.Message("Confirmation","Do you want to exit the game?",this);
+    }
+
     @Override
     public void finish() {
         super.finish();
@@ -70,6 +111,8 @@ public class PZ_L1_G1 extends AppCompatActivity {
     }
     //load photo on the popup window
     private void loadPhoto(ImageView imageView, int width, int height) {
+
+        status = true;
 
         ImageView tempImageView = imageView;
 
@@ -147,6 +190,8 @@ public class PZ_L1_G1 extends AppCompatActivity {
                 case DragEvent.ACTION_DRAG_EXITED:
                     break;
                 case DragEvent.ACTION_DROP:
+                    number_of_tries++;
+
                     if (v.getId() == R.id.pz_l1_11){
                         String details = v.getId() +" "+ R.id.pz_l1_11 +" "+ view.getId() +" "+ R.id.pz_l1_q_11;
 
@@ -163,7 +208,7 @@ public class PZ_L1_G1 extends AppCompatActivity {
 
                             int result = ca.performCheck(details);
                             if (result==1){
-                                loadPhoto((ImageView)findViewById(R.id.pm_source1),300,300);
+                                loadPhoto((ImageView)findViewById(R.id.pz_l1_triangle_back_imgView),400,400);
                                 welldone.start();
                             }else if(result==-1){
                                 Message("Wrong Answer!!!!","Oh !!!, You made a mistake");
@@ -267,9 +312,6 @@ public class PZ_L1_G1 extends AppCompatActivity {
                     }
                     break;
             }
-
-
-
             return true;
         }
     };
