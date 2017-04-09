@@ -58,7 +58,9 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/p_orange"
+                    app:srcCompat="@drawable/orange_a"
+                    android:maxHeight="150dp"
+                    android:maxWidth="150dp"
                     android:background="@null"
                     android:onClick="orangeButton"
                     android:id="@+id/imageButton" />

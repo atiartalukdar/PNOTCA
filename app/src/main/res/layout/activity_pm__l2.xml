@@ -48,17 +48,21 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="165dp"
+                    android:layout_height="165dp"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
                     app:srcCompat="@drawable/car"
                     android:background="@null"
                     android:onClick="mangoButton"
                     android:paddingRight="5dp"
                     android:id="@+id/mango" />
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
                     app:srcCompat="@drawable/house"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
                     android:background="@null"
                     android:onClick="orangeButton"
                     android:id="@+id/imageButton" />
@@ -72,16 +76,20 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="165dp"
+                    android:layout_height="165dp"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
                     app:srcCompat="@drawable/carrot"
                     android:background="@null"
                     android:onClick="catButton"
                     android:paddingRight="5dp"
                     android:id="@+id/imageButton3" />
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
                     app:srcCompat="@drawable/fish"
                     android:background="@null"
                     android:onClick="treeButton"
