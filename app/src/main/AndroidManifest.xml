@@ -38,7 +38,7 @@
             android:name=".puzzleL1.PZ_L1"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".puzzleL2.PZ_l2_G2"
+            android:name=".puzzleL2.PZ_L2_G2"
             android:screenOrientation="landscape" />
         <activity
             android:name=".puzzleL1.PZ_L1_G1"
@@ -50,7 +50,7 @@
             android:name=".puzzleL1.PZ_L1_G2"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".puzzleL2.PZ_l2_G1"
+            android:name=".puzzleL2.PZ_L2_G1"
             android:screenOrientation="landscape" />
         <activity
             android:name=".patternL1.PM_L1"

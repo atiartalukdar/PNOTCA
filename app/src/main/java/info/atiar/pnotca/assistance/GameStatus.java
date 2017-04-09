@@ -7,18 +7,35 @@ import java.util.ArrayList;
  */
 
 public class GameStatus {
-    String emailBody;
-    public static ArrayList<String> list = new ArrayList<String>();
 
+    //public static ArrayList<String> list = new ArrayList<String>();
 
+///*
+    private static GameStatus instance = new GameStatus();
+    private ArrayList<String> list;
+
+    private GameStatus(){
+
+        list = new ArrayList<String>();
+
+    }
+
+    public static GameStatus getInstance(){
+        if(instance == null){
+            instance = new GameStatus();
+        }
+        return instance;
+    }
+//*/
 
     public void addToList(String data){
         list.add(data);
     }
 
     public String getEmailBody(){
-        for(int i=0;i<getListSize();i++){
-            emailBody = emailBody + list.remove(i);
+        String emailBody = "";
+        while (list.size()!=0){
+            emailBody = list.remove(getListSize()-1)+emailBody;
         }
         System.out.print("List Size = " + getListSize() + "\n" + "Email Body = " + emailBody +"\n");
         return emailBody;
@@ -31,7 +48,5 @@ public class GameStatus {
     public void clearTheList(){
         list.clear();
     }
-
-
 
 }

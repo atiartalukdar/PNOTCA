@@ -17,6 +17,7 @@ import android.widget.Toast;
 import java.util.regex.Pattern;
 
 import info.atiar.pnotca.R;
+import info.atiar.pnotca.assistance.BP;
 import info.atiar.pnotca.assistance.CheckAnswer;
 import info.atiar.pnotca.assistance.GameStatus;
 import info.atiar.pnotca.patternL1.PM_L1_G1;
@@ -37,14 +38,14 @@ public class PZ_L3_G1 extends AppCompatActivity {
     String toastText = "Dropped by contact@atiar.info";
     boolean toastVisibility = false;
 
+    String temp = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ca = new CheckAnswer(12);
 
-        String temp = this.getLocalClassName();
-        String[] parts = temp.split(Pattern.quote("."));
-        Game = Game + parts[1] + " - ";
+        temp = this.getLocalClassName();
 
         welldone = MediaPlayer.create(this, R.raw.welldone);
         tryagain = MediaPlayer.create(this,R.raw.tryagain);
@@ -111,7 +112,11 @@ public class PZ_L3_G1 extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        gs = new GameStatus();
+        gs = GameStatus.getInstance();
+
+        String[] parts = temp.split(Pattern.quote("."));
+        Game = parts[1];
+
         startTime = 0;
         endTime = 0;
         totalTime = 0;
@@ -134,14 +139,11 @@ public class PZ_L3_G1 extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         if (number_of_tries > 0){
-            Game = Game + number_of_tries + " - " + status + " - " + totalTime + " Seconds <br>";
+            gs.addToList(BP.listFormat(Game,number_of_tries,status,totalTime));
 
-            //pass the data to GameStatus class
-            gs.addToList(Game);
-            System.out.println("List Object = " +Game);
+            BP.print(BP.listFormat(Game,number_of_tries,status,totalTime));
         }
     }
-
     public void toastFunc(){
         if(toastVisibility){
             Toast.makeText(this, toastText,Toast.LENGTH_LONG).show();

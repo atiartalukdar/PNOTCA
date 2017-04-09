@@ -9,7 +9,7 @@ import info.atiar.pnotca.assistance.GameStatus;
 
 public class Start extends AppCompatActivity {
 
-    GameStatus gs = new GameStatus();
+    GameStatus gs = GameStatus.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

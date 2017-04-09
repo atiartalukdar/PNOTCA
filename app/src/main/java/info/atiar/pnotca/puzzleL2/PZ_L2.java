@@ -16,12 +16,12 @@ public class PZ_L2 extends AppCompatActivity {
     }
 
     public void appleButton(View view){
-        Intent intent=new Intent(PZ_L2.this,PZ_l2_G1.class);
+        Intent intent=new Intent(PZ_L2.this,PZ_L2_G1.class);
         startActivity(intent);
     }
 
     public void flowerButton(View view){
-        Intent intent=new Intent(PZ_L2.this,PZ_l2_G2.class);
+        Intent intent=new Intent(PZ_L2.this,PZ_L2_G2.class);
         startActivity(intent);
     }
 }

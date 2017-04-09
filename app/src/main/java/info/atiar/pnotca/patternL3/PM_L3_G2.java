@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import java.util.regex.Pattern;
 
 import info.atiar.pnotca.R;
+import info.atiar.pnotca.assistance.BP;
 import info.atiar.pnotca.assistance.CheckAnswer;
 import info.atiar.pnotca.assistance.GameStatus;
 import info.atiar.pnotca.patternL1.PM_L1_G1;
@@ -33,14 +34,14 @@ public class PM_L3_G2 extends AppCompatActivity {
     boolean status = false;
     long startTime = 0,endTime = 0,totalTime = 0;
 
+    String temp = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ca = new CheckAnswer(3);
 
-        String temp = this.getLocalClassName();
-        String[] parts = temp.split(Pattern.quote("."));
-        Game = Game + parts[1] + " - ";
+        temp = this.getLocalClassName();
 
         welldone = MediaPlayer.create(this, R.raw.welldone);
         tryagain = MediaPlayer.create(this,R.raw.tryagain);
@@ -72,7 +73,11 @@ public class PM_L3_G2 extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        gs = new GameStatus();
+        gs =GameStatus.getInstance();
+
+        String[] parts = temp.split(Pattern.quote("."));
+        Game = parts[1];
+
         startTime = 0;
         endTime = 0;
         totalTime = 0;
@@ -90,7 +95,15 @@ public class PM_L3_G2 extends AppCompatActivity {
         endTime = System.currentTimeMillis();
         totalTime += (endTime - startTime)/1000; // tempTotalTime will store duration in seconds
     }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (number_of_tries > 0){
+            gs.addToList(BP.listFormat(Game,number_of_tries,status,totalTime));
 
+            BP.print(BP.listFormat(Game,number_of_tries,status,totalTime));
+        }
+    }
     public void resetButton(View view){
         finish();
         startActivity(getIntent());

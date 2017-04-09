@@ -16,11 +16,12 @@ import android.widget.ImageView;
 import java.util.regex.Pattern;
 
 import info.atiar.pnotca.R;
+import info.atiar.pnotca.assistance.BP;
 import info.atiar.pnotca.assistance.CheckAnswer;
 import info.atiar.pnotca.assistance.GameStatus;
 import info.atiar.pnotca.patternL1.PM_L1_G1;
 
-public class PZ_l2_G2 extends AppCompatActivity {
+public class PZ_L2_G2 extends AppCompatActivity {
 
     ImageView target1,target2,target3,target4,target5,target6,target7,target8,target9,
             source1,source2,source3,source4,source5,source6,source7,source8,source9;
@@ -33,6 +34,7 @@ public class PZ_l2_G2 extends AppCompatActivity {
     int number_of_tries = 0;
     boolean status = false;
     long startTime = 0,endTime = 0,totalTime = 0;
+    String temp = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +42,7 @@ public class PZ_l2_G2 extends AppCompatActivity {
 
         ca = new CheckAnswer(9);
 
-        String temp = this.getLocalClassName();
-        String[] parts = temp.split(Pattern.quote("."));
-        Game = Game + parts[1] + " - ";
+        temp = this.getLocalClassName();
 
         welldone = MediaPlayer.create(this, R.raw.welldone);
         tryagain = MediaPlayer.create(this,R.raw.tryagain);
@@ -99,7 +99,11 @@ public class PZ_l2_G2 extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        gs = new GameStatus();
+        gs = GameStatus.getInstance();
+
+        String[] parts = temp.split(Pattern.quote("."));
+        Game = parts[1];
+
         startTime = 0;
         endTime = 0;
         totalTime = 0;
@@ -117,16 +121,13 @@ public class PZ_l2_G2 extends AppCompatActivity {
         endTime = System.currentTimeMillis();
         totalTime += (endTime - startTime)/1000; // tempTotalTime will store duration in seconds
     }
-
     @Override
     protected void onStop() {
         super.onStop();
         if (number_of_tries > 0){
-            Game = Game + number_of_tries + " - " + status + " - " + totalTime + " Seconds <br>";
+            gs.addToList(BP.listFormat(Game,number_of_tries,status,totalTime));
 
-            //pass the data to GameStatus class
-            gs.addToList(Game);
-            System.out.println("List Object = " +Game);
+            BP.print(BP.listFormat(Game,number_of_tries,status,totalTime));
         }
     }
 
