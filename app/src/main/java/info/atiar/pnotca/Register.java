@@ -14,7 +14,7 @@ public class Register extends AppCompatActivity {
 
     GameStatus gs = GameStatus.getInstance();
 
-    String emailBodyTitle = "<p style=\"text-align: left;\"><strong><span style=\"text-decoration: underline;\">GAME</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style=\"text-decoration: underline;\">TRIES</span>&nbsp; &nbsp; &nbsp;&nbsp;<span style=\"text-decoration: underline;\">STATUS</span> &nbsp; &nbsp; <span style=\"text-decoration: underline;\">ELAPSED</span><br /></strong></p>";
+    String emailBodyTitle = "<p style=\"text-align: left;\"><strong><span style=\"text-decoration: underline;\">GAME</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style=\"text-decoration: underline;\">TRIES</span>&nbsp; &nbsp; &nbsp;&nbsp;<span style=\"text-decoration: underline;\">STATUS</span> &nbsp; &nbsp; &nbsp; &nbsp; <span style=\"text-decoration: underline;\">ELAPSED</span><br /></strong></p>";
 
     String fromEmail = "pnotca@gmail.com";
     String fromPassword = "freelancer";

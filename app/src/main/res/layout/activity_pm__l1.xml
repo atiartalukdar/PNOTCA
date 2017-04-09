@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView4" />
         <TextView
-            android:text="@string/select_one_of_puzzle"
+            android:text="@string/select_one_of_pattern"
             android:textSize="35sp"
             android:gravity="center"
             android:layout_width="match_parent"

@@ -9,40 +9,84 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/select_category_interface"
+    android:background="@drawable/select_ctg"
     tools:context="info.atiar.pnotca.Select_Category">
 
-    <ImageButton
+    <TextView
+        android:text="Select Category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ctg111"
+        android:gravity="center"
+        android:textSize="70sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="250dp"
+        android:id="@+id/textView6" />
+
+    <ImageButton
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/patternmatching"
         android:background="@null"
         android:id="@+id/imageButton4"
-        android:layout_marginEnd="658dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="20dp"
         android:onClick="pattrenMatching"/>
 
-    <ImageButton
+    <TextView
+        android:text="Pattern\nMatching"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ctg333"
-        android:id="@+id/imageButton7"
-        android:background="@null"
-        android:layout_marginBottom="14dp"
-        android:layout_alignBottom="@+id/imageButton6"
-        android:onClick="puzzle"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginTop="460dp"
+        android:layout_marginLeft="50dp"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:id="@+id/textView7" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         app:srcCompat="@drawable/ctg222"
         android:id="@+id/imageButton6"
         android:background="@null"
         android:onClick="objectIdentification"
-        android:layout_alignTop="@+id/imageButton4"
-        android:layout_toStartOf="@+id/imageButton7"
-        android:layout_marginEnd="19dp" />
+        android:layout_marginTop="225dp"
+        android:layout_marginLeft="340dp"/>
+
+    <TextView
+        android:text="Object\nIdentification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="480dp"
+        android:layout_marginLeft="340dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:id="@+id/textView8" />
+
+    <ImageButton
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        app:srcCompat="@drawable/puzzle_logo"
+        android:id="@+id/imageButton7"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="640dp"
+        android:onClick="puzzle" />
+
+    <TextView
+        android:text="Puzzles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="490dp"
+        android:layout_marginLeft="720dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:id="@+id/textView9" />
 
 </RelativeLayout>
