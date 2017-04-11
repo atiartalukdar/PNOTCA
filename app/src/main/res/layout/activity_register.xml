@@ -119,7 +119,7 @@
                     android:background="@drawable/round_edittext"
                     android:inputType="textEmailAddress"
                     android:ems="10"
-                    android:id="@+id/editText8"
+                    android:id="@+id/emailED"
                     android:hint="" />
 
                 <Button

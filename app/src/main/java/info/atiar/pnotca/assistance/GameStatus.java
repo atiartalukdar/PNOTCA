@@ -8,11 +8,10 @@ import java.util.ArrayList;
 
 public class GameStatus {
 
-    //public static ArrayList<String> list = new ArrayList<String>();
-
-///*
     private static GameStatus instance = new GameStatus();
     private ArrayList<String> list;
+    private static int success   = 0;
+    private static int attempted = 0;
 
     private GameStatus(){
 
@@ -39,6 +38,36 @@ public class GameStatus {
         }
         System.out.print("List Size = " + getListSize() + "\n" + "Email Body = " + emailBody +"\n");
         return emailBody;
+    }
+
+
+    public void calculateSuccessAndAttempts(boolean status){
+        int s = 0, a = 0;
+        if (status == true){
+            s = getSuccess();
+            s++;
+            setSuccess(s);
+        } else if (status == false){
+            a = getAttempted();
+            a++;
+            setAttempted(a);
+        }
+    }
+
+    public void setSuccess(int success) {
+        this.success = success;
+    }
+
+    public void setAttempted(int attempted) {
+        this.attempted = attempted;
+    }
+
+    public int getSuccess() {
+        return success;
+    }
+
+    public int getAttempted() {
+        return attempted;
     }
 
     public int getListSize(){
