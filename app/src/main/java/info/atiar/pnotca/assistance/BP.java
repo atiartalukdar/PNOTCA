@@ -29,6 +29,23 @@ public class BP {
             tempStatus = "Attempted";
         }
 
+        String data = game + "*" + tempStatus + "*"
+                + totalTime;
+        return data;
+    }
+
+    public static String listFormatWith4Object(String game, int number_of_tries, boolean status, long totalTime){
+
+        GameStatus gs = GameStatus.getInstance();
+        gs.calculateSuccessAndAttempts(status);
+
+        String tempStatus = "";
+        if (status == true){
+            tempStatus = "Succeed";
+        }else{
+            tempStatus = "Attempted";
+        }
+
         String data = game + "&nbsp; &nbsp; &nbsp; &nbsp;" + number_of_tries + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"
                 + tempStatus + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + totalTime + " Sec <br>";
 

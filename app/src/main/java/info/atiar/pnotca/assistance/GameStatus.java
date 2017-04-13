@@ -9,13 +9,13 @@ import java.util.ArrayList;
 public class GameStatus {
 
     private static GameStatus instance = new GameStatus();
-    private ArrayList<String> list;
+    private ArrayList<Attempt> list;
     private static int success   = 0;
     private static int attempted = 0;
 
     private GameStatus(){
 
-        list = new ArrayList<String>();
+        list = new ArrayList<Attempt>();
 
     }
 
@@ -28,13 +28,13 @@ public class GameStatus {
 //*/
 
     public void addToList(String data){
-        list.add(data);
+        list.add(new Attempt(data));
     }
 
     public String getEmailBody(){
         String emailBody = "";
         while (list.size()!=0){
-            emailBody = list.remove(getListSize()-1)+emailBody;
+            emailBody = list.remove(getListSize()-1).getData()+emailBody;
         }
         System.out.print("List Size = " + getListSize() + "\n" + "Email Body = " + emailBody +"\n");
         return emailBody;
@@ -77,5 +77,4 @@ public class GameStatus {
     public void clearTheList(){
         list.clear();
     }
-
-}
+    }
