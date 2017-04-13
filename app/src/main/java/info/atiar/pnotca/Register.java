@@ -8,7 +8,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 import info.atiar.pnotca.assistance.BP;
@@ -36,6 +39,8 @@ public class Register extends AppCompatActivity {
     EditText specialistName;
     EditText childAge;
     EditText childName;
+    Calendar cal;
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +50,8 @@ public class Register extends AppCompatActivity {
         specialistName = (EditText) findViewById(R.id.nameOfSpecialistED);
         childAge = (EditText) findViewById(R.id.childAgeED);
         childName = (EditText) findViewById(R.id.childNameED);
+
+        cal = Calendar.getInstance();
     }
 
     public void sendFeedback(View view){
@@ -64,8 +71,11 @@ public class Register extends AppCompatActivity {
             String specialist = specialistName.getText().toString();
             String ageOfChild = childAge.getText().toString().trim();
             String nameOfChild = childName.getText().toString();
+            String dateTime = dateFormat.format(cal) + "";
 
-            String bodyHead = "Child Name = " + nameOfChild + "<br>Child Age = " + ageOfChild + "<br>Specialist Name = " + specialist + "<br><br><br>";
+            BP.print(dateTime);
+
+            String bodyHead = "Child Name = " + nameOfChild + "<br>Child Age = " + ageOfChild + "<br>Specialist Name = " + specialist + "<br>Played On = " + dateTime + "<br><br><br>";
             String successRate = "<br><br><br>Success Rate = " + BP.successRate(gs.getSuccess(),gs.getAttempted())+"%";
 
             emailBody = bodyHead + emailBody3Title + gs.getEmailBody() + successRate;

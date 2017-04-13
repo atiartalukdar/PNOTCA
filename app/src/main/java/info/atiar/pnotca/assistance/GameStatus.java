@@ -43,6 +43,8 @@ public class GameStatus {
 
     public void calculateSuccessAndAttempts(boolean status){
         int s = 0, a = 0;
+        Attempt x = new Attempt(getEmailBody());
+        x.getSuccess();
         if (status == true){
             s = getSuccess();
             s++;
